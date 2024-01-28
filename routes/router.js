@@ -38,8 +38,9 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log("req.body", req.body);
     if (!email || !password) {
-      return res.boom.notFound("Invalid data");
+      return res.boom.notFound("Invalid data", req.body);
     }
     const user = await userdb.findOne({ email: email });
     if (!user) return res.boom.badRequest("User Not Found");
@@ -65,7 +66,10 @@ router.post("/login", async (req, res) => {
 
     return res.status(200).json({ status: 200, result });
   } catch (error) {
-    return res.boom.badRequest(error.message);
+    // return res.boom.badRequest(error.message, req.body);
+    return res
+      .status(500)
+      .json({ data: req.body, error: error.message, status: 500 });
   }
 });
 

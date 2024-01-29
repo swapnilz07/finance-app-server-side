@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const encodedPassword = encodeURIComponent(process.env.PASSWORD);
-const DB = `mongodb+srv://swapnilzakade33:${encodedPassword}@financeappdb.i2swymu.mongodb.net`;
+const DB = `mongodb+srv://swapnilzakade33:${encodedPassword}@financeappdb.i2swymu.mongodb.net/Authuser`;
 
 mongoose.connect(
   DB,

@@ -17,6 +17,10 @@ app.use(boom());
 app.use(cors());
 app.use(router);
 
+app.use("/", async (req, res) => {
+  res.send("Server is running.");
+});
+
 app.listen(PORT, () => {
   console.log(`Server started at port: ${PORT}`);
 });

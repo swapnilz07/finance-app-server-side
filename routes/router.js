@@ -102,7 +102,7 @@ router.get("/logout", authenticate, async (req, res) => {
 
 // API for inserting loan data
 router.post("/post", async (req, res) => {
-console.log("We are inside a post request function");
+  console.log("We are inside a post request function");
 
   const data = new monmodel(req.body);
 

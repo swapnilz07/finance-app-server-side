@@ -16,10 +16,6 @@ app.use(boom());
 app.use(cors());
 app.use(router);
 
-app.use("/", async (req, res) => {
-  res.send("server is running...");
-});
-
 app.listen(2022, () => {
   console.log("Server statted at port : 2022");
 });
